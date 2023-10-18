@@ -5,4 +5,5 @@ Repositório com questões de programação competitiva e juízes online.
 - [Estrutura de Dados](EstruturaDeDados)
 - [Grafos](Grafos)
 - [Matemática](Matemática)
+- [Strings](Strings)
 - [Variados](Variados)

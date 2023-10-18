@@ -1,0 +1,4 @@
+# Arquivos de saída do compilador C++
+*.out
+*.exe
+*.o
