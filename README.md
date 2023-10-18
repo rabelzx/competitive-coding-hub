@@ -1,2 +1,6 @@
 # competitive-coding-hub
-Repositório destinado a armazenar questões de juiz online
+Repositório com questões de programação competitiva e juízes online. 
+
+## Temas
+- [Grafos](Grafos)
+- [Variados](Variados)
