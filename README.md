@@ -1,6 +1,8 @@
 # competitive-coding-hub
 Repositório com questões de programação competitiva e juízes online. 
 
-## Temas
+## Tópicos
+- [Estrutura de Dados](EstruturaDeDados)
 - [Grafos](Grafos)
+- [Matemática](Matemática)
 - [Variados](Variados)
