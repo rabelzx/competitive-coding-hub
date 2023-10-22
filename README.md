@@ -1,6 +1,4 @@
 # competitive-coding-hub
-Competitive problems solutions by me. 
-
 ## Tópicos
 - [Estrutura de Dados](EstruturaDeDados)
 - [Grafos](Grafos)
