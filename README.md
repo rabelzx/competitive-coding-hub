@@ -1,5 +1,5 @@
 # competitive-coding-hub
-Repositório com questões de programação competitiva e juízes online. 
+Competitive problems solutions by me. 
 
 ## Tópicos
 - [Estrutura de Dados](EstruturaDeDados)
