@@ -1,31 +1,33 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-typedef pair<int, int> ii; 
+long long inf = std::numeric_limits<long long>::max();
+typedef pair<long long, long long> ll; 
 
-void dijkstra(const vector<vector<ii>>& adj, int start, int end) {
+void dijkstra(const vector<vector<ll>>& adj, int start, int end) {
     int n = adj.size();
-    vector<int> distances(n, numeric_limits<int>::max());
-    vector<int> parent(n, -1);
+    vector<long long> distances(n, inf);
+    vector<long long> parent(n, -1);
 
     //a distancia do vertice inicial para ele mesmo é 0
     distances[start] = 0;
 
     //minHeap para armazenar os vertices e suas distancias
-    priority_queue<ii, vector<ii>, greater<ii>> minHeap; 
+    priority_queue<ll, vector<ll>, greater<ll>> minHeap; 
     minHeap.push(make_pair(0, start));
 
     while (!minHeap.empty()) {
-        int u = minHeap.top().second;
+        long long u = minHeap.top().second;
         minHeap.pop();
 
         //se o vertice atual for o destino, pare
         if (u == end)
             break;
 
+        //pra cada vizinho do vertice atual
         for (const auto& edge : adj[u]) {
-            int v = edge.first;
-            int weight = edge.second;
+            long long v = edge.first;
+            long long weight = edge.second;
 
             if (distances[u] + weight < distances[v]) {
                 distances[v] = distances[u] + weight;
@@ -39,8 +41,8 @@ void dijkstra(const vector<vector<ii>>& adj, int start, int end) {
     if (parent[end] == -1) {
         cout << -1 << endl;
     } else {
-        vector<int> path;
-        int current = end;
+        vector<long long> path;
+        long long current = end;
 
         //reconstruindo o caminho: adiciona o vertice atual no caminho e vai para o pai dele
         while (current != -1) {
@@ -49,21 +51,25 @@ void dijkstra(const vector<vector<ii>>& adj, int start, int end) {
         }
 
         //imprime o vector path ao contrario
-        for (int i = path.size() - 1; i >= 0; i--) {
+        reverse(path.begin(), path.end());
+        unsigned int i; 
+        for (i = 0 ; i < path.size(); i++) {
             cout << path[i];
-            if (i > 0)
+            if(i != path.size() - 1)
                 cout << " ";
+            else
+                cout << endl;
         }
 
         cout << endl;
-    }
+    }   
 }
 
 int main() {
-    int n, m; 
+    long long n, m; 
     cin >> n >> m; 
 
-    vector<vector<ii>> adj(n + 1);
+    vector<vector<ll>> adj(n + 1);
 
     for(int i = 0 ; i < m; i++){
         int u, v, w; 
