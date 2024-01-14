@@ -7,19 +7,19 @@ using edge = tuple<int, int, int>;
 const int MAX { 100010 };
 vector<ii> adj[MAX];
 
-int prim(int u, size_t N)
+long long prim(int u, size_t N)
 {
-    set<int> C;
-    C.emplace(u);
+    set<int> visitados;
+    visitados.emplace(u); 
 
     priority_queue<ii, vector<ii>, greater<ii>> pq;
 
     for (const ii& p : adj[u])
         pq.emplace(p.second, p.first);
 
-    int mst = 0;
+    long long mst = 0;
 
-    while (C.size() < N)
+    while (visitados.size() < N)
     {
         int v, w;
 
@@ -31,10 +31,10 @@ int prim(int u, size_t N)
 
             tie(w, v) = pq.top();
             pq.pop();
-        } while (C.count(v));
+        } while (visitados.count(v));
 
         mst += w;
-        C.emplace(v);
+        visitados.emplace(v);
 
         for (const ii& p : adj[v])
             pq.emplace(p.second, p.first);
@@ -54,7 +54,7 @@ int main() {
         adj[v].emplace_back(u, w);
     }
 
-    int ans = prim(1, n);
+    long long ans = prim(1, n);
 
     if (ans == -1) {
         cout << "IMPOSSIBLE" << endl;
